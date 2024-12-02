@@ -19,15 +19,18 @@ app.use((req, res, next) => {
 });
 
 // Middleware
-app.use(express.json());
-app.use(cors({
+const corsOptions = {
     origin: process.env.NODE_ENV === 'production'
-        ? ['https://badbank-backend-yj2t.onrender.com', 'https://spectacular-starburst-5c92ac.netlify.app']
+        ? 'https://spectacular-starburst-5c92ac.netlify.app'
         : 'http://localhost:3000',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+};
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Handle preflight requests
+
+app.use(express.json());
 
 // Mount user routes
 app.use('/api/users', userRoutes);
