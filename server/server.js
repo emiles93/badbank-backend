@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 // Middleware
 const corsOptions = {
     origin: process.env.NODE_ENV === 'production'
-        ? 'https://betterbank2024.netlify.app/'
+        ? 'https://betterbank2024.netlify.app'
         : 'http://localhost:3000',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
