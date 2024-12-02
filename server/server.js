@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(cors({
     origin: process.env.NODE_ENV === 'production'
-        ? 'https://your-frontend-domain.netlify.app'  // You'll update this with your actual Netlify domain
+        ? ['https://badbank-backend-yj2t.onrender.com', 'https://spectacular-starburst-5c92ac.netlify.app']
         : 'http://localhost:3000',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
